@@ -22,9 +22,12 @@
     "build": "yarn compile",
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
-    "size": "npx hardhat size-contracts"
+    "size": "npx hardhat size-contracts",
+    "storeToIPFS": "tsc scripts/storeToIPFS.ts && node scripts/storeToIPFS.js"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.2.0"
+    "@openzeppelin/contracts": "^4.2.0",
+    "dotenv": "^10.0.0",
+    "nft.storage": "^3.3.0"
   }
 }

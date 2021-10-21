@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./PinksaleInterface.sol";
 
@@ -10,21 +11,19 @@ import "./PinksaleInterface.sol";
     @author kefas
  */
 
-contract PresaleExclusive is ERC721 {
+contract PresaleExclusive is ERC721, ERC721Enumerable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    address public pinksalePresaleAddress = address(0);
+    address public pinksalePresaleAddress = 0x4C45918Ea5bAD138e66EDD02eF6Ae87Af55E5830;
 
     mapping(address => bool) public minted;
 
     constructor() ERC721("Pool Party Presale Exclusive", "PPPE") {}
 
-    function tokenURI(uint256 tokenId) public view override {
-        return
-            "ipfs://bafkreiaon23sx26a2g754afl3jyxtsk7zpuno5ryh43uaag4jsz6mtqyza";
-    }
-
+    /**
+        @notice Mints NFT if the msg.sender is eligible and hasn't minted their NFT yet
+     */
     function mintToken() public returns (uint256) {
         require(
             _isEligible(msg.sender),
@@ -44,16 +43,43 @@ contract PresaleExclusive is ERC721 {
     }
 
     /**
-        @notice Returns true if the amount contributed in Pinksale is eq 1 BNB
+        @return URI with NFT metadata, the metadata are same for each token
      */
-    function isEligible(address _purchaser) external view returns (uint256) {
-        return _isEligible(_purchaser);
+    function tokenURI(uint256 tokenId) public view override returns (string memory) {
+        return
+            "ipfs://ipfs://bafyreigdkhlxq4xhk4p52cxpti26dhtiphgvqmabzh473jmfhzgw3yax34/metadata.json";
     }
 
     /**
         @notice Returns true if the amount contributed in Pinksale is eq 1 BNB
      */
+    function isEligible(address _purchaser) external view returns (bool) {
+        return _isEligible(_purchaser);
+    }
+
+
+    /**
+        @notice Returns true if the amount contributed in Pinksale is eq 1 BNB
+     */
     function _isEligible(address _purchaser) private view returns (bool) {
-        return PinkSale(pinksalePresaleAddress).contributionOf == 10**18;
+        return PinkSale(pinksalePresaleAddress).contributionOf(_purchaser) == 10**18;
+    }
+
+    // The following functions are overrides required by Solidity.
+
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId)
+        internal
+        override(ERC721, ERC721Enumerable)
+    {
+        super._beforeTokenTransfer(from, to, tokenId);
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
     }
 }
