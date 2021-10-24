@@ -15,7 +15,7 @@ contract PresaleExclusive is ERC721, ERC721Enumerable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    address public pinksalePresaleAddress = 0x4C45918Ea5bAD138e66EDD02eF6Ae87Af55E5830;
+    address public pinksalePresaleAddress = 0x7d97c30E59F0c3108abf8a6Ed62B1B7A8a0BCa5c;
 
     mapping(address => bool) public phase1Contributors;
 
