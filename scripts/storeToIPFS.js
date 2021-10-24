@@ -53,7 +53,7 @@ var store = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 0:
                 _b = (_a = client).store;
                 _d = {
-                    name: 'Pool Party Presale Exclusive"',
+                    name: 'Pool Party Presale Exclusive',
                     description: 'This NFT is awarded to every contributor who bought full amount of 950k $PP tokens in the Pool Party presale.'
                 };
                 _c = nft_storage_1.File.bind;

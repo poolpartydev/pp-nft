@@ -36,8 +36,8 @@
       ]
     },
     "/home/peter/webdev/PoolParty/contracts/nft/contracts/PresaleExclusive.sol": {
-      "lastModificationDate": 1634737310434,
-      "contentHash": "bb1d02f1988bc0ea7a52cf86d8692a14",
+      "lastModificationDate": 1635086817972,
+      "contentHash": "df5509e30ae27950b2e6758d413ee0ca",
       "sourceName": "contracts/PresaleExclusive.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -64,6 +64,7 @@
       "imports": [
         "hardhat/console.sol",
         "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
         "@openzeppelin/contracts/utils/Counters.sol",
         "./PinksaleInterface.sol"
       ],
@@ -460,6 +461,79 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "/home/peter/webdev/PoolParty/contracts/nft/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
+      "lastModificationDate": 1634670828016,
+      "contentHash": "55752434e41be58192ecbaa3beb4b7cc",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC721.sol",
+        "./IERC721Enumerable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Enumerable"
+      ]
+    },
+    "/home/peter/webdev/PoolParty/contracts/nft/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
+      "lastModificationDate": 1634670828016,
+      "contentHash": "e57b2ff1645fb57408d6f87ee861dcb6",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Enumerable"
       ]
     }
   }
