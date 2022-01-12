@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
@@ -19,8 +20,7 @@ contract Minter is Ownable {
     // Total probability is sum of all collection probabilities
     uint256 public totalProbability;
 
-    //TODO set
-    address public LSDBagContract = address(0);
+    address public LSDBagContract = 0xf29763f1fd0975EfdDbA87b881CE6377872698d0;
 
     /**
         @notice Adds NFT collection 
@@ -100,9 +100,8 @@ contract Minter is Ownable {
         @notice Randomly picks the collection from which the next NFT will be minted
      */
     function _randomlyPickCollection() private returns (address) {
-        //TODO: set address of characters
-        address PPCharacters = address(0);
-        return PPCharacters;
+        // returns first added collection
+        return collectionToProbability.getKeyAtIndex(0);
         // // TODO get random number in range 0..totalProbability from Chainlink VRF
         // uint256 randomNumber = ;
         // // Iterates through all probabilities and gradually adds them and checks whether 

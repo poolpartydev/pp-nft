@@ -1,0 +1,82 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bagId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBag",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "bagId",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint48",
+                "name": "createdAt",
+                "type": "uint48"
+              },
+              {
+                "internalType": "uint48",
+                "name": "nextPayoutIndex",
+                "type": "uint48"
+              },
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint128",
+                "name": "balance",
+                "type": "uint128"
+              },
+              {
+                "internalType": "uint128",
+                "name": "totalDividendsPaid",
+                "type": "uint128"
+              }
+            ],
+            "internalType": "struct LSDStructs.Bag",
+            "name": "data",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bool",
+                "name": "isERC721Type",
+                "type": "bool"
+              },
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct LSDStructs.AttachedNFT",
+            "name": "nft",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct LSDStructs.BagDataExtended",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
